@@ -40,7 +40,7 @@ class _CE_Step2State extends State<CE_Step2> {
       builder: (BuildContext context) {
         return AlertDialog(
           content: Container(
-            height: MediaQuery.of(context).size.height * 0.5,
+            width: double.infinity, // Adjust the width as per your requirement
             child: TableCalendar(
               focusedDay: DateTime.now(),
               firstDay: DateTime.now(),
@@ -51,6 +51,7 @@ class _CE_Step2State extends State<CE_Step2> {
       },
     );
   }
+
 
   void _onOccurTypeSelected(String locationType) {
     // Close the bottom sheet
@@ -406,9 +407,9 @@ class _CE_Step2State extends State<CE_Step2> {
                     height: MediaQuery.of(context).size.height * 0.01,
                   ),
                   GestureDetector(
-                    // onTap: () {
-                    //   _onTimeSelector();
-                    // },
+                    onTap: () {
+                      _showCalendarPopup(context);
+                    },
                     child: Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10.0),
                         width: MediaQuery.of(context).size.width * 1.0,
@@ -423,7 +424,8 @@ class _CE_Step2State extends State<CE_Step2> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            SvgPicture.asset("Assets/Images/Icon/cal.svg"),
+                            SvgPicture.asset("Assets/Images/Icon/cal.svg",
+                             color : Color(0xff8DC73F)),
                             const SizedBox(width: 10.0),
                             const Text(
                               "07/16/2023",
@@ -471,7 +473,13 @@ class _CE_Step2State extends State<CE_Step2> {
                           child: Container(
                             height: 50,
                             width: 200,
-                            color: Colors.green,
+                            decoration: BoxDecoration(
+                              borderRadius:
+                              const BorderRadius.all(Radius.circular(8.0)),
+                              border: Border.all(
+                                color: const Color(0xFFF1F1F2),
+                              ),
+                            ),
                             child: Text(
                               '${_selectedTime.hour}:${_selectedTime.minute.toString().padLeft(2, '0')}',
                               style: TextStyle(
@@ -510,7 +518,8 @@ class _CE_Step2State extends State<CE_Step2> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            SvgPicture.asset("Assets/Images/Icon/cal.svg"),
+                            SvgPicture.asset("Assets/Images/Icon/cal.svg",
+                                color : Color(0xff8DC73F)),
                             const SizedBox(width: 10.0),
                             const Text(
                               "07/16/2023",
@@ -642,7 +651,7 @@ class _CE_Step2State extends State<CE_Step2> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const CE_Step3()),
+                                builder: (context) => CE_Step3()),
                           );
                         },
                         style: ElevatedButton.styleFrom(

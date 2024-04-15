@@ -515,7 +515,8 @@ class _CE_Step1State extends State<CE_Step1> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        SvgPicture.asset('Assets/Images/Components/cross.svg'),
+                        SvgPicture.asset('Assets/Images/Components/cross.svg',
+                         color: Color(0xff201335),),
                         const Text(
                           "Create Event",
                           style: TextStyle(
@@ -915,9 +916,11 @@ class _CE_Step1State extends State<CE_Step1> {
                                 'SatoshiMedium', // You can adjust the font weight
                           ),
                         ),
-                      )
+                      ),
+
                     ],
-                  )
+                  ),
+                  SizedBox(height: 12,)
                 ],
               ),
             ),

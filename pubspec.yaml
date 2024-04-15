@@ -60,6 +60,8 @@ dependencies:
   camera: ^0.10.5+9
   permission_handler: ^11.3.1
   badges: ^3.1.2
+  fl_chart: ^0.67.0
+  syncfusion_flutter_charts: ^25.1.39+1
 
 
 
@@ -105,6 +107,7 @@ flutter:
     - Assets/Images/Icon/
     - Assets/Images/Icon/HelpSupport/
     - Assets/Images/Components/BottomNavigationBar/
+    - Assets/ORGANISER_APP/Images/OrgDashBoardImages/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

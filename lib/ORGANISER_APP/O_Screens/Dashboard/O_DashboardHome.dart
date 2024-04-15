@@ -9,6 +9,7 @@ import 'package:stub_guys/ORGANISER_APP/O_Screens/Dashboard/Components/firstrepo
 import 'package:stub_guys/ORGANISER_APP/O_Screens/Dashboard/Components/mostperformingevents.dart';
 import 'package:stub_guys/ORGANISER_APP/O_Screens/O_AttendeesList/Attendees.dart';
 import 'package:stub_guys/ORGANISER_APP/O_Screens/O_Support/O_SupportMain.dart';
+import 'package:badges/badges.dart' as badges;
 
 class O_Dashboard extends StatefulWidget {
   const O_Dashboard({super.key});
@@ -223,39 +224,21 @@ class _O_DashboardState extends State<O_Dashboard> {
                       const SizedBox(
                         width: 5.0,
                       ),
-                      Stack(
-                        children: [
-                          SizedBox(
-                            height: 40,
-                            width: 40,
-                            child: SvgPicture.asset(
-                              'Assets/ORGANISER_APP/Icons/Dashboard/bell.svg', // Replace with your SVG file path
-                            ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          right: 10
+                        ),
+                        child: badges.Badge(
+                          badgeContent: Text("5",style: TextStyle(
+                              fontSize: 13,
+                              fontFamily: 'SatoshiBold',
+                              color: Colors.white
+                          ),),
+                          badgeStyle: badges.BadgeStyle(
+                              badgeColor: Color(0xff8DC73F)
                           ),
-                          Positioned(
-                            right: 1,
-                            child: Container(
-                              width: 17, // Adjust the width as needed
-                              height: 17, // Adjust the height as needed
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                color:
-                                    Color(0xFF8DC73F), // Set the circle color
-                              ),
-                              child: const Center(
-                                child: Text(
-                                  '5',
-                                  style: TextStyle(
-                                    color: Colors.white, // Set the text color
-                                    fontSize:
-                                        10, // Adjust the font size as needed
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          )
-                        ],
+                          child: SvgPicture.asset('Assets/ORGANISER_APP/Icons/Dashboard/bell.svg'),
+                        ),
                       )
                     ],
                   )

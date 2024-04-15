@@ -77,7 +77,7 @@ class UserTile extends StatelessWidget {
                     data['name']!,
                     style: const TextStyle(
                       color: Color(0xFF201335),
-                      fontSize: 20,
+                      fontSize: 18,
                       fontFamily: 'SatoshiBold',
                     ),
                   ),
@@ -104,7 +104,7 @@ class UserTile extends StatelessWidget {
                     'checked-In',
                     style: TextStyle(
                         color: Color(0xFF14804A),
-                        fontSize: 12.0,
+                        fontSize: 11.0,
                         fontFamily: 'Satoshimedium'),
                   ),
                 )
@@ -119,7 +119,7 @@ class UserTile extends StatelessWidget {
                     'Not Checked In',
                     style: TextStyle(
                         color: Color(0xFFED4F4F),
-                        fontSize: 12.0,
+                        fontSize: 11.0,
                         fontFamily: 'Satoshimedium'),
                   ),
                 ),

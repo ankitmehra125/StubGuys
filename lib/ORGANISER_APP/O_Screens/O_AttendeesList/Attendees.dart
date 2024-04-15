@@ -48,7 +48,7 @@ class O__AttendeesState extends State<O_Attendees> {
                   "Attendees",
                   style: TextStyle(
                     color: Color(0xFF201335),
-                    fontSize: 40,
+                    fontSize: 32,
                     fontFamily: 'SatoshiMedium',
                   ),
                 ),

@@ -13,6 +13,8 @@ import 'package:stub_guys/ORGANISER_APP/O_Screens/Dashboard/O_DashboardHome.dart
 import 'package:stub_guys/ORGANISER_APP/O_Screens/O_Profile/O_MainProfile.dart';
 import 'package:stub_guys/SGConnectProfile.dart';
 
+import 'ORGANISER_APP/O_Screens/CreateEvents/Process/CE_Step1.dart';
+
 void main()
 {
   runApp(DevicePreview(
