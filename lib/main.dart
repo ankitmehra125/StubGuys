@@ -2,6 +2,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:stub_guys/ATTANDEE_APP/A_Screens/CONNECTS/connect_page.dart';
+import 'package:stub_guys/ATTANDEE_APP/A_Screens/CONNECTS/popup_page.dart';
 import 'package:stub_guys/ATTANDEE_APP/A_Screens/CONNECTS/stubConnect_landing.dart';
 import 'package:stub_guys/ATTANDEE_APP/A_Screens/HomeFeeds/HomeFeed.dart';
 import 'package:stub_guys/ATTANDEE_APP/A_Screens/Splashes/Splash.dart';
@@ -34,10 +35,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           useMaterial3: true,
         ),
-        // home:  SGConnectProfile()
-      // home: const ConnectsPage()
-      // home: StubConnectLanding(),
-      home: Splash(),
+      home: Splash()
     );
   }
 }

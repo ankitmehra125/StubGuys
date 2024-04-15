@@ -45,106 +45,116 @@ class _ChangePinState extends State<ChangePin> {
       )
     );
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              width: double.infinity,
-              height: mQuery.size.height * 0.17,
-              color: const Color(0xffDEFBB8),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: double.infinity,
+            height: mQuery.size.height * 0.17,
+            color: const Color(0xffDEFBB8),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: mQuery.size.height * 0.1,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Row(
+                    children: [
+                      GestureDetector(
+                          onTap : ()
+                          {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const O_HomeFeed()),
+                            );
+                          },
+                          child: SvgPicture.asset("Assets/ORGANISER_APP/Icons/Orders/formkit_arrowleft.svg")),
+                      SizedBox(
+                        width: mQuery.size.width * 0.04,
+                      ),
+                      const Text(
+                        "Input your StubGuys PIN",
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w700,
+                          color: Color(0xff201335),
+                          fontFamily: 'SatoshiBold',
+                          height: 1.1,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: mQuery.size.height * 0.02,
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: Row(
+              children: [
+                Text(
+                  "Enter your pin",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    color: Color(0xFF5E6366),
+                    fontFamily: 'SatoshiRegular',
+                    height: 2.1,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: mQuery.size.height*0.02,),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Container(
               child: Column(
                 children: [
-                  SizedBox(
-                    height: mQuery.size.height * 0.1,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: Row(
-                      children: [
-                        SvgPicture.asset("Assets/ORGANISER_APP/Icons/Orders/formkit_arrowleft.svg"),
-                        SizedBox(
-                          width: mQuery.size.width * 0.04,
-                        ),
-                        const Text(
-                          "Input your StubGuys PIN",
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.w700,
-                            color: Color(0xff201335),
-                            fontFamily: 'SatoshiBold',
-                            height: 1.1,
-                          ),
-                        )
-                      ],
-                    ),
+                  Pinput(
+                    length: 4,
+                    defaultPinTheme: defaultPinTheme,
                   ),
                 ],
               ),
             ),
-            SizedBox(
-              height: mQuery.size.height * 0.02,
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Row(
-                children: [
-                  Text(
-                    "Enter your pin",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                      color: Color(0xFF5E6366),
-                      fontFamily: 'SatoshiRegular',
-                      height: 2.1,
-                    ),
-                  ),
-                ],
+          ),
+          Expanded(child: SizedBox()),
+          GestureDetector(
+            onTap: () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const O_HomeFeed()),
+              )
+            },
+            child: Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(
+                horizontal: mQuery.size.width*0.045
               ),
-            ),
-            SizedBox(height: mQuery.size.height*0.02,),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Container(
-                child: Column(
-                  children: [
-                    Pinput(
-                      length: 4,
-                      defaultPinTheme: defaultPinTheme,
-                    ),
-
-                    SizedBox(height: mQuery.size.height*0.54,),
-                    GestureDetector(
-                       onTap: () => {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const O_HomeFeed()),
-                  )
-                },
-                      child: Container(
-                        width: double.infinity,
-                        height: mQuery.size.height * 0.055,
-                        decoration: BoxDecoration(
-                            color: const Color(0xff201335),
-                            borderRadius: BorderRadius.circular(15)),
-                        child: const Center(
-                          child: Text(
-                            "Continue",
-                            style: TextStyle(
-                                color: Color(0xffF1F1F2),
-                                    fontFamily: 'SatoshiBold',
-                                fontSize: 16),
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
+              height: mQuery.size.height * 0.065,
+              decoration: BoxDecoration(
+                  color: const Color(0xff201335),
+                  borderRadius: BorderRadius.circular(15)),
+              child: const Center(
+                child: Text(
+                  "Continue",
+                  style: TextStyle(
+                      color: Color(0xffF1F1F2),
+                      fontFamily: 'SatoshiBold',
+                      fontSize: 16),
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+          SizedBox(height: mQuery.size.height*0.023,)
+        ],
       ),
     );
   }
@@ -170,6 +180,9 @@ class OTPBox extends StatelessWidget {
         controller: controller,
         focusNode: focusNode,
         textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: 20
+        ),
         keyboardType: TextInputType.number,
         maxLength: 1,
         decoration: InputDecoration(

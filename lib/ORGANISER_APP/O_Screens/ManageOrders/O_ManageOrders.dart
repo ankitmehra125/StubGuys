@@ -137,7 +137,7 @@ class _ManageOrdersState extends State<ManageOrders> {
               height: MediaQuery.of(context).size.height * 0.02,
             ),
             Padding(
-              padding: EdgeInsets.only( top: 16),
+              padding: EdgeInsets.only(top: 16),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

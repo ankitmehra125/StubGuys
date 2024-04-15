@@ -22,11 +22,12 @@ class MostPerformingEvents extends StatelessWidget {
           ),
         ),
         SizedBox(
-          width: mQuery.size.width * 0.02,
+          width: mQuery.size.width * 0.01,
         ),
         Text(
           topic,
-          style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w700),
+          style: const TextStyle(fontSize: 10,
+            fontFamily: 'SatoshiBold'),
         )
       ],
     );

@@ -268,12 +268,15 @@ class _O_DashboardState extends State<O_Dashboard> {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.03,
               ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SalesDetails(),
-                  SalesDetails(),
-                ],
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SalesDetails(),
+                    SalesDetails(),
+                  ],
+                ),
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.03,
@@ -285,7 +288,9 @@ class _O_DashboardState extends State<O_Dashboard> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         border: Border.all(color: const Color(0xFFF1F1F2))),
-                    padding: const EdgeInsets.all(16),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 4
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

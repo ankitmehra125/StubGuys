@@ -17,74 +17,72 @@ class _QRViewExampleState extends State<QRViewExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(height: MediaQuery.of(context).size.height * 0.1),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
-              child: Row(
-                children: [
-                  Text(
-                    "Scan QR\nCode",
-                    style: TextStyle(
-                      color: Color(0xFF201335),
-                      fontSize: 40,
-                      fontFamily: 'SatoshiMedium',
-                    ),
+      body: ListView(
+        children: [
+          SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            child: Row(
+              children: [
+                Text(
+                  "Scan QR\nCode",
+                  style: TextStyle(
+                    color: Color(0xFF201335),
+                    fontSize: 32,
+                    fontFamily: 'SatoshiMedium',
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.15,
-            ),
-            Center(
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  SvgPicture.asset("Assets/Images/qr.svg"),
-                  Container(
-                    width: MediaQuery.of(context).size.width *
-                        0.65, // Customize the width of your container
-                    height: MediaQuery.of(context).size.height *
-                        0.3, // Customize the height of your container
-                    child: QRView(
-                      key: qrKey,
-                      onQRViewCreated: _onQRViewCreated,
-                    ),
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.1,
+          ),
+          Center(
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                SvgPicture.asset("Assets/Images/qr.svg"),
+                Container(
+                  width: MediaQuery.of(context).size.width *
+                      0.65, // Customize the width of your container
+                  height: MediaQuery.of(context).size.height *
+                      0.3, // Customize the height of your container
+                  child: QRView(
+                    key: qrKey,
+                    onQRViewCreated: _onQRViewCreated,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            const Spacer(),
-            Container(
-              width: double.infinity,
-              height: MediaQuery.of(context).size.height * 0.1,
-              color: const Color(0xFF008000),
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.check,
+          ),
+          SizedBox(height: 10,),
+          Container(
+            width: double.infinity,
+            height: MediaQuery.of(context).size.height * 0.1,
+            color: const Color(0xFF008000),
+            child: const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.check,
+                  color: Colors.white,
+                ),
+                SizedBox(
+                  width: 10.0,
+                ),
+                Text(
+                  "Scan successful",
+                  style: TextStyle(
                     color: Colors.white,
+                    fontSize: 16,
+                    fontFamily: 'SatoshiMedium',
                   ),
-                  SizedBox(
-                    width: 10.0,
-                  ),
-                  Text(
-                    "Scan successful",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontFamily: 'SatoshiMedium',
-                    ),
-                  ),
-                ],
-              ),
-            )
-          ],
-        ),
+                ),
+              ],
+            ),
+          )
+        ],
       ),
       // floatingActionButton: FloatingActionButton(
       //   onPressed: () {

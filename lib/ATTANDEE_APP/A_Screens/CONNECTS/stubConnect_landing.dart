@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_profile_picture/flutter_profile_picture.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:stub_guys/ATTANDEE_APP/A_Screens/CONNECTS/connect_page.dart';
 import 'package:stub_guys/ATTANDEE_APP/A_Screens/CONNECTS/popup_page.dart';
 import 'package:stub_guys/ATTANDEE_APP/A_Screens/Profile/Mainprofile.dart';
 
@@ -74,7 +75,7 @@ class _StubConnectLandingState extends State<StubConnectLanding> {
                onTap: ()
                {
                  Navigator.push(context, MaterialPageRoute(builder: (context){
-                   return PopUpPage();
+                   return ConnectsPage();
                  }));
                },
                child: Container(
