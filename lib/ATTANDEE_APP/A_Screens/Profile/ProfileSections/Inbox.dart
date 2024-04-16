@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stub_guys/ATTANDEE_APP/A_Screens/Profile/Components/Messages/DemoMessage.dart';
 import 'package:stub_guys/ATTANDEE_APP/A_Screens/Profile/Components/Messages/chats.dart';
+import 'package:stub_guys/ATTANDEE_APP/A_Screens/Profile/Mainprofile.dart';
+import 'package:badges/badges.dart' as badges;
 
 class ChatPage extends StatefulWidget {
   const ChatPage({super.key});
@@ -28,39 +30,44 @@ class _ChatPageState extends State<ChatPage> {
                 children: [
                   Row(
                     children: [
-                      SvgPicture.asset("Assets/Images/Icon/back.svg"),
+                      GestureDetector(
+                        onTap: ()
+                          {
+                            Navigator.push(context, MaterialPageRoute(builder: (context){
+                              return Profile();
+                            }));
+                          },
+                          child: SvgPicture.asset("Assets/Images/Icon/back.svg")),
                       const SizedBox(
-                        width: 10.0,
+                        width: 12.0,
                       ),
                       const Text(
                         'Messages',
                         style: TextStyle(
                           color: Color(0xFF201335),
-                          fontSize: 38.0,
+                          fontSize: 32.0,
                           fontFamily: 'SatoshiMedium',
                         ),
                       ),
                     ],
                   ),
-                  Stack(children: [
-                    SvgPicture.asset("Assets/Images/Icon/bell.svg"),
-                    const Positioned(
-                        top: 0,
-                        right: 0,
-                        child: Stack(
-                          alignment: Alignment(0, 0),
-                          children: [
-                            Icon(
-                              size: 17.0,
-                              Icons.circle,
-                              color: Colors.green,
-                            ),
-                            Text("5",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 9.0)),
-                          ],
-                        ))
-                  ])
+
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      right: 12
+                    ),
+                    child: badges.Badge(
+                      badgeStyle: badges.BadgeStyle(
+                        badgeColor: Color(0xff8DC73F)
+                      ),
+                      badgeContent: Text("3",style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 13,
+                        fontFamily: 'SatoshiBold'
+                      ),),
+                      child: SvgPicture.asset("Assets/Images/Icon/bell.svg"),
+                    ),
+                  )
                 ],
               ),
               SizedBox(

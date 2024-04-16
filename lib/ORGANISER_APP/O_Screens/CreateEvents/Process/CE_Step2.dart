@@ -19,20 +19,40 @@ class _CE_Step2State extends State<CE_Step2> {
   Future<void> _selectTime(BuildContext context) async {
     final TimeOfDay? picked = await showTimePicker(
       context: context,
+
       initialTime: _selectedTime,
       builder: (BuildContext context, Widget? child) {
         return MediaQuery(
           data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
-          child: child!,
+          child: Theme(
+            data: ThemeData(
+              primaryColor: Colors.white, // Set primary color to white
+            ),
+            child: Builder(
+              builder: (BuildContext context) {
+                return Theme(
+                  data: Theme.of(context).copyWith(
+
+                  ),
+                  child: child!,
+                );
+              },
+            ),
+
+          ),
         );
       },
     );
+
     if (picked != null && picked != _selectedTime) {
       setState(() {
         _selectedTime = picked;
       });
     }
   }
+
+
+
 
   void _showCalendarPopup(BuildContext context) {
     showDialog(

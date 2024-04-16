@@ -114,7 +114,7 @@ class _OTP1State extends State<OTP1> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const otp()),
+                  MaterialPageRoute(builder: (context) =>  otp()),
                 );
               },
               style: ElevatedButton.styleFrom(

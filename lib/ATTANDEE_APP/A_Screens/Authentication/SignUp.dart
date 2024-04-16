@@ -32,7 +32,7 @@ class _SignUpState extends State<SignUp> {
           // White Container with Login and Password
           // Positioned with top left and top right border radius
           Positioned(
-            top: MediaQuery.of(context).size.height * 0.27,
+            top: MediaQuery.of(context).size.height * 0.24,
             left: 0,
             right: 0,
             bottom: 0,
@@ -44,198 +44,199 @@ class _SignUpState extends State<SignUp> {
                   topRight: Radius.circular(20.0),
                 ),
               ),
-              child: ListView(
-                // mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-
-                  const Text(
-                    'Create an account',
-                    style: TextStyle(
-                      color: Color(0xFF201335),
-                      fontSize: 28.0,
-                      fontFamily: 'SatoshiBold',
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    SizedBox(height: 10,),
+                    const Text(
+                      'Create an account',
+                      style: TextStyle(
+                        color: Color(0xFF201335),
+                        fontSize: 24.0,
+                        fontFamily: 'SatoshiBold',
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.03,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                      left: MediaQuery.of(context).size.width * 0.05,
-                      right: MediaQuery.of(context).size.width * 0.05,
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.03,
                     ),
-                    child: Column(
+                    Padding(
+                      padding: EdgeInsets.only(
+                        left: MediaQuery.of(context).size.width * 0.05,
+                        right: MediaQuery.of(context).size.width * 0.05,
+                      ),
+                      child: Column(
+                        children: [
+                          const TextField(
+                            decoration: InputDecoration(
+                              labelText: 'Full name',
+                              labelStyle: TextStyle(
+                                fontFamily: 'SatoshiMedium',
+                                color: Color(0xFF696D61),
+                                // Adjust the color
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(
+                                      0xFF696D61), // Adjust the color of the base line
+                                  width: 0.9, // Adjust the width of the base line
+                                ),
+                              ),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(
+                                      0xFF696D61), // Adjust the color of the base line for unfocused state
+                                  width:
+                                      0.9, // Adjust the width of the base line for unfocused state
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.005,
+                          ),
+                          const TextField(
+                            decoration: InputDecoration(
+                              labelText: 'Email',
+                              labelStyle: TextStyle(
+                                fontFamily: 'SatoshiMedium',  // Adjust the font weight
+                                color: Color(0xFF696D61),
+                                // Adjust the color
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(
+                                      0xFF696D61), // Adjust the color of the base line
+                                  width: 0.9, // Adjust the width of the base line
+                                ),
+                              ),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(
+                                      0xFF696D61), // Adjust the color of the base line for unfocused state
+                                  width:
+                                      0.9, // Adjust the width of the base line for unfocused state
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.005,
+                          ),
+                          const TextField(
+                            decoration: InputDecoration(
+                              labelText: 'Password',
+                              labelStyle: TextStyle(
+                                fontFamily: 'SatoshiMedium',
+                                color: Color(0xFF696D61),
+                                // Adjust the color
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(
+                                      0xFF696D61), // Adjust the color of the base line
+                                  width: 0.9, // Adjust the width of the base line
+                                ),
+                              ),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(
+                                      0xFF696D61), // Adjust the color of the base line for unfocused state
+                                  width:
+                                      0.9, // Adjust the width of the base line for unfocused state
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.03,
+                          ),
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const OTP1()),
+                              );
+                            },
+                            style: ElevatedButton.styleFrom(
+                              padding: EdgeInsets.zero,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                              ),
+                              minimumSize: const Size(390.0, 55.0),
+                              primary: const Color(0xFF8DC73F),
+                            ),
+                            child: Container(
+                              width: double.infinity,
+                              height: 55.0,
+                              alignment: Alignment.center,
+                              child: const Text(
+                                'Create an account',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16.0,
+                                  fontFamily: 'SatoshiBold',
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.02,
+                          ),
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.39,
+                                child: const Divider(
+                                  color: Color.fromARGB(255, 205, 205, 205),
+                                  thickness: 1,
+                                ),
+                              ),
+                              const Text(
+                                "   or   ",
+                                style: TextStyle(
+                                  // fontFamily: "Satoshi",
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400,
+                                  height: 22 / 16,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.39,
+                                child: const Divider(
+                                  color: Color.fromARGB(255, 205, 205, 205),
+                                  thickness: 1,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.025,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const TextField(
-                          decoration: InputDecoration(
-                            labelText: 'Full name',
-                            labelStyle: TextStyle(
-                              fontFamily: 'SatoshiMedium',
-                              color: Color(0xFF696D61),
-                              // Adjust the color
-                            ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(
-                                    0xFF696D61), // Adjust the color of the base line
-                                width: 0.9, // Adjust the width of the base line
-                              ),
-                            ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(
-                                    0xFF696D61), // Adjust the color of the base line for unfocused state
-                                width:
-                                    0.9, // Adjust the width of the base line for unfocused state
-                              ),
-                            ),
-                          ),
+                        Image.asset("Assets/Images/Icon/facebook.jpg"),
+                        const SizedBox(
+                          width: 20,
                         ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.01,
+                        Image.asset("Assets/Images/Icon/google.jpg"),
+                        const SizedBox(
+                          width: 20,
                         ),
-                        const TextField(
-                          decoration: InputDecoration(
-                            labelText: 'Email',
-                            labelStyle: TextStyle(
-                              fontFamily: 'SatoshiMedium',  // Adjust the font weight
-                              color: Color(0xFF696D61),
-                              // Adjust the color
-                            ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(
-                                    0xFF696D61), // Adjust the color of the base line
-                                width: 0.9, // Adjust the width of the base line
-                              ),
-                            ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(
-                                    0xFF696D61), // Adjust the color of the base line for unfocused state
-                                width:
-                                    0.9, // Adjust the width of the base line for unfocused state
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.01,
-                        ),
-                        const TextField(
-                          decoration: InputDecoration(
-                            labelText: 'Password',
-                            labelStyle: TextStyle(
-                              fontFamily: 'SatoshiMedium',
-                              color: Color(0xFF696D61),
-                              // Adjust the color
-                            ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(
-                                    0xFF696D61), // Adjust the color of the base line
-                                width: 0.9, // Adjust the width of the base line
-                              ),
-                            ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(
-                                    0xFF696D61), // Adjust the color of the base line for unfocused state
-                                width:
-                                    0.9, // Adjust the width of the base line for unfocused state
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.04,
-                        ),
-                        ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const OTP1()),
-                            );
-                          },
-                          style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.zero,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                            ),
-                            minimumSize: const Size(390.0, 55.0),
-                            primary: const Color(0xFF8DC73F),
-                          ),
-                          child: Container(
-                            width: 390.0,
-                            height: 55.0,
-                            alignment: Alignment.center,
-                            child: const Text(
-                              'Create an account',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16.0,
-                                fontFamily: 'SatoshiBold',
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.025,
-                        ),
-                        Row(
-                          children: [
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.39,
-                              child: const Divider(
-                                color: Color.fromARGB(255, 205, 205, 205),
-                                thickness: 1,
-                              ),
-                            ),
-                            const Text(
-                              "   or   ",
-                              style: TextStyle(
-                                // fontFamily: "Satoshi",
-                                fontSize: 14,
-                                fontWeight: FontWeight.w400,
-                                height: 22 / 16,
-                              ),
-                              textAlign: TextAlign.left,
-                            ),
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.39,
-                              child: const Divider(
-                                color: Color.fromARGB(255, 205, 205, 205),
-                                thickness: 1,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.025,
-                        ),
+                        Image.asset("Assets/Images/Icon/apple.jpg"),
                       ],
                     ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset("Assets/Images/Icon/facebook.jpg"),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      Image.asset("Assets/Images/Icon/google.jpg"),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      Image.asset("Assets/Images/Icon/apple.jpg"),
-                    ],
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.035,
-                  ),
-                ],
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.035,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

@@ -28,7 +28,6 @@ class _MyTicketsState extends State<MyTickets> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       backgroundColor: Colors.white,
       body: Padding(
         padding: EdgeInsets.only(left: numberofevents == 1 ? 25.0 : 16.0),

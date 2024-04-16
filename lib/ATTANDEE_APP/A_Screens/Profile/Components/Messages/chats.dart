@@ -30,15 +30,18 @@ class _ChatsBuilderState extends State<ChatsBuilder> {
     return InkWell(
       onTap: widget.onTap,
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.only(
+          top: 10,
+          bottom: 10
+        ),
         child: Row(
           children: [
             CircleAvatar(
-              maxRadius: 24.0,
+              maxRadius: 20.0,
               backgroundImage: NetworkImage(widget.avatarImage),
             ),
             const SizedBox(
-              width: 14.0,
+              width: 8.0,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:stub_guys/ATTANDEE_APP/A_Screens/Profile/MyCalender.dart';
 import 'package:stub_guys/ATTANDEE_APP/A_Screens/Profile/ProfileSections/Inbox.dart';
 import 'package:stub_guys/ATTANDEE_APP/A_Screens/Profile/ProfileSections/L&C/L&C.dart';
 import 'package:stub_guys/ATTANDEE_APP/A_Screens/Profile/ProfileSections/Location/Location.dart';
@@ -23,6 +24,7 @@ class _ProfileState extends State<Profile> {
   void _showLogoutBottomSheet() {
     showModalBottomSheet(
       context: context,
+      isScrollControlled: true,
       builder: (BuildContext context) {
         return Logout();
       },
@@ -225,17 +227,17 @@ class _ProfileState extends State<Profile> {
                 height: MediaQuery.of(context).size.height * 0.03,
               ),
               GestureDetector(
-                onTap: () => {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const ChatPage()),
-                  )
+                onTap: ()
+                {
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return MyCalendar();
+                  }));
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: IconTextRow(
                     iconData: "Assets/Images/Components/Profile/p_calender.svg",
-                    text: "My Calender",
+                    text: "My Calendar",
                   ),
                 ),
               ),
@@ -298,9 +300,17 @@ class _ProfileState extends State<Profile> {
               ),
               Padding(
                 padding: const EdgeInsets.all(10.0),
-                child: IconTextRow(
-                  iconData: "Assets/Images/Components/Profile/p_gethelp.svg",
-                  text: "Get help",
+                child: GestureDetector(
+                  onTap: ()
+                  {
+                    Navigator.push(context, MaterialPageRoute(builder: (context){
+                      return Supportmain();
+                    }));
+                  },
+                  child: IconTextRow(
+                    iconData: "Assets/Images/Components/Profile/p_gethelp.svg",
+                    text: "Get help",
+                  ),
                 ),
               ),
               SizedBox(

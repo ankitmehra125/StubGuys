@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:stub_guys/ATTANDEE_APP/A_Screens/Profile/Components/FavouritesBuilder.dart';
 import 'package:stub_guys/ATTANDEE_APP/A_Screens/Profile/Components/username.dart';
+import 'package:stub_guys/ATTANDEE_APP/A_Screens/Profile/Mainprofile.dart';
 
 import '../../EventDetails/EventDetailsV1.dart';
 
@@ -36,7 +37,7 @@ class _FavouritesState extends State<Favourites> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const EventDetails()),
+                            builder: (context) => Profile()),
                       );
                     },
                     child: Container(

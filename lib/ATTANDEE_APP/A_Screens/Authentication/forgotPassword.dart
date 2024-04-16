@@ -1,20 +1,21 @@
-
-import 'package:flutter/material.dart';
+import 'package:stub_guys/ATTANDEE_APP/A_Screens/Authentication/Login.dart';
 import 'package:stub_guys/ATTANDEE_APP/A_Screens/Authentication/MobileOtp/OTP1.dart';
 import 'package:stub_guys/ATTANDEE_APP/A_Screens/Authentication/OTP.dart';
-import 'package:stub_guys/ATTANDEE_APP/A_Screens/Authentication/SignUp.dart';
-import 'package:stub_guys/ATTANDEE_APP/A_Screens/Authentication/forgotPassword.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class ForgotPassword extends StatefulWidget {
+  const ForgotPassword({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<ForgotPassword> createState() => _ForgotPasswordState();
 }
 
-class _LoginState extends State<Login> {
+class _ForgotPasswordState extends State<ForgotPassword> {
+  TextEditingController emailOrPhoneController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    var mQuery = MediaQuery.of(context);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Stack(
@@ -33,7 +34,7 @@ class _LoginState extends State<Login> {
           // White Container with Login and Password
           // Positioned with top left and top right border radius
           Positioned(
-            top: MediaQuery.of(context).size.height * 0.26,
+            top: MediaQuery.of(context).size.height * 0.27,
             left: 0,
             right: 0,
             bottom: 0,
@@ -45,14 +46,12 @@ class _LoginState extends State<Login> {
                   topRight: Radius.circular(20.0),
                 ),
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+              child: ListView(
+                // mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.036,
-                  ),
+
                   const Text(
-                    'Welcome Back',
+                    'Forgot password?',
                     style: TextStyle(
                       color: Color(0xFF201335),
                       fontSize: 24.0,
@@ -61,8 +60,27 @@ class _LoginState extends State<Login> {
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.04,
+                    height: MediaQuery.of(context).size.height * 0.03,
                   ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal : MediaQuery.of(context).size.width * 0.05,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Enter your email or phone number to receive",style: TextStyle(
+                          color: Color(0xff696D61),
+                          fontFamily: 'SatoshiMedium'
+                        ),),
+                        Text("password reset code.",style: TextStyle(
+                            color: Color(0xff696D61),
+                            fontFamily: 'SatoshiMedium'
+                        ),),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: mQuery.size.height*0.05,),
                   Padding(
                     padding: EdgeInsets.only(
                       left: MediaQuery.of(context).size.width * 0.05,
@@ -70,24 +88,11 @@ class _LoginState extends State<Login> {
                     ),
                     child: Column(
                       children: [
-                        const Text(
-                          'We are happy to see you here again. Enter your email address and password to continue.',
-                          style: TextStyle(
-                            color: Color(0xFF696D61),
-                            fontSize: 15.0,
-                            fontFamily: 'SatoshiRegular',
-                          ),
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.03,
-                        ),
-                        const TextField(
+                        TextField(
                           decoration: InputDecoration(
-                            labelText: 'Username',
+                            labelText: 'E-mail or phone number',
                             labelStyle: TextStyle(
-                              fontSize: 14.0, // Adjust the font size
-                              fontWeight:
-                                  FontWeight.w400, // Adjust the font weight
+                              fontFamily: 'SatoshiMedium',
                               color: Color(0xFF696D61),
                               // Adjust the color
                             ),
@@ -103,43 +108,14 @@ class _LoginState extends State<Login> {
                                 color: Color(
                                     0xFF696D61), // Adjust the color of the base line for unfocused state
                                 width:
-                                    0.9, // Adjust the width of the base line for unfocused state
+                                0.9, // Adjust the width of the base line for unfocused state
                               ),
                             ),
                           ),
+                          controller: emailOrPhoneController,
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.02,
-                        ),
-                        const TextField(
-                          decoration: InputDecoration(
-                            labelText: 'Password',
-                            labelStyle: TextStyle(
-                              fontSize: 14.0, // Adjust the font size
-                              fontWeight:
-                                  FontWeight.w400, // Adjust the font weight
-                              color: Color(0xFF696D61),
-                              // Adjust the color
-                            ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(
-                                    0xFF696D61), // Adjust the color of the base line
-                                width: 0.9, // Adjust the width of the base line
-                              ),
-                            ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(
-                                    0xFF696D61), // Adjust the color of the base line for unfocused state
-                                width:
-                                    0.9, // Adjust the width of the base line for unfocused state
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.04,
+                          height: MediaQuery.of(context).size.height * 0.05,
                         ),
                         ElevatedButton(
                           onPressed: () {
@@ -162,7 +138,7 @@ class _LoginState extends State<Login> {
                             height: 55.0,
                             alignment: Alignment.center,
                             child: const Text(
-                              'Login',
+                              'Reset password',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.0,
@@ -171,30 +147,8 @@ class _LoginState extends State<Login> {
                             ),
                           ),
                         ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.033,
-                        ),
-                         GestureDetector(
-                           onTap: ()
-                           {
-                             Navigator.push(context, MaterialPageRoute(builder: (context){
-                               return ForgotPassword();
-                             }));
-                           },
-                           child: Text(
-                            'Forgot Password',
-                            style: TextStyle(
-                              color: Color(0xFF8DC73F),
-                              fontSize: 15.0,
-                              fontFamily: 'SatoshiMedium',
-                            ),
-                                                   ),
-                         ),
                       ],
                     ),
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.035,
                   ),
                 ],
               ),
@@ -211,8 +165,8 @@ class _LoginState extends State<Login> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
-                    "Don't have an account? ",
+                  Text(
+                    "Already have an account? ",
                     style: TextStyle(
                       // fontFamily: "Satoshi",
                       fontSize: 14,
@@ -225,11 +179,11 @@ class _LoginState extends State<Login> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const SignUp()),
+                        MaterialPageRoute(builder: (context) => const Login()),
                       );
                     },
-                    child: const Text(
-                      "Sign up",
+                    child: Text(
+                      "Sign in",
                       style: TextStyle(
                         // fontFamily: "Satoshi",
                         fontSize: 14,

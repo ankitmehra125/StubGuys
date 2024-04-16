@@ -7,7 +7,7 @@ class Logout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.3,
+      height: MediaQuery.of(context).size.height * 0.35,
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.white,
