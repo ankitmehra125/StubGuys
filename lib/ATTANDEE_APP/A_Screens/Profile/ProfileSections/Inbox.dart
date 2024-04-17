@@ -81,12 +81,12 @@ class _ChatPageState extends State<ChatPage> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Row(
+                   Row(
                     children: [
                       Text(
                         'Unread',
                         style: TextStyle(
-                          color: Color(0xFFE3E3E3),
+                          color: Colors.grey.shade300,
                           fontSize: 14.0,
                           fontFamily: 'SatoshiBold',
                         ),
@@ -116,12 +116,12 @@ class _ChatPageState extends State<ChatPage> {
                   SizedBox(
                     height: 32.0,
                   ),
-                  const Row(
+                   Row(
                     children: [
                       Text(
                         'All messages',
                         style: TextStyle(
-                          color: Color(0xFFE3E3E3),
+                          color: Colors.grey.shade300,
                           fontSize: 14.0,
                           fontFamily: 'SatoshiBold',
                         ),
@@ -164,37 +164,23 @@ class UiHelper {
     return Builder(
       builder: (context) {
         var mQuery = MediaQuery.of(context);
-        return SizedBox(
+        return Container(
           height: mQuery.size.height * 0.065,
           width: double.infinity,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+            border: Border.all(
+              color: Colors.grey.shade300
+            )
+          ),
           child: TextField(
             decoration: InputDecoration(
-              border: OutlineInputBorder(
-                borderSide: const BorderSide(
-                  color: Color(0xFFF1F1F2),
-                  width: 1.0, // Unfocused border width
-                ),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderSide: const BorderSide(
-                  color: Color(0xFFF1F1F2),
-                  width: 2.0, // Focused border width
-                ),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderSide: const BorderSide(
-                  color: Color(0xFFF1F1F2),
-                  width: 1.0, // Unfocused border width
-                ),
-                borderRadius: BorderRadius.circular(20),
-              ),
+              border: InputBorder.none,
               hintText: text,
-              hintStyle: const TextStyle(color: Color(0xFFF1F1F2)),
+              hintStyle: TextStyle(color: Colors.grey.shade300),
               prefixIcon: Icon(
                 icon,
-                color: const Color(0xFFF1F1F2),
+                  color: Colors.grey.shade300
               ),
             ),
           ),

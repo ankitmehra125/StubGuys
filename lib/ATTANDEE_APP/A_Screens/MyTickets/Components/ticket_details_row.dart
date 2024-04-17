@@ -18,12 +18,11 @@ class _ticket_details_rowState extends State<ticket_details_row> {
       child: Row(
         children: [
           SizedBox(
-            width: 70,
+            width: 60,
             child: Text(
               widget.title,
               style: const TextStyle(
                 color: Color(0xFF696D61),
-                fontSize: 16.0,
                 fontFamily: 'SatoshiMedium',
               ),
             ),
@@ -36,7 +35,7 @@ class _ticket_details_rowState extends State<ticket_details_row> {
               widget.titledetails,
               style: const TextStyle(
                 color: Color(0xFF201335),
-                fontSize: 16.0,
+                fontSize: 12,
                 fontFamily: 'SatoshiMedium',
               ),
             ),

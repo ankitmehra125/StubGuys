@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:stub_guys/ATTANDEE_APP/A_Screens/MyTickets/Mytickets.dart';
 
 import '../Components/TicketDetails.dart';
 import '../EventDetailsV1.dart';
@@ -15,10 +16,11 @@ class Step4 extends StatefulWidget {
 class _Step4State extends State<Step4> {
   @override
   Widget build(BuildContext context) {
+    var mQuery = MediaQuery.of(context);
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          color: const Color(0xFF201335),
+      body: Container(
+        color: const Color(0xFF201335),
+        child: SingleChildScrollView(
           child: Column(
             children: [
               Padding(
@@ -71,7 +73,7 @@ class _Step4State extends State<Step4> {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.1,
+                      height: MediaQuery.of(context).size.height * 0.045,
                     ),
                     SvgPicture.asset(
                       'Assets/Images/Components/TicketBooked.svg',
@@ -136,24 +138,18 @@ class _Step4State extends State<Step4> {
                               height: MediaQuery.of(context).size.height * 0.03,
                             ),
                             TktDetails(),
-                            
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.05,
-                            ),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.05,
-                            ),
+                            Expanded(child: SizedBox()),
                             Padding(
                               padding: const EdgeInsets.only(
                                   left: 15.0, right: 15.0),
                               child: Center(
                                 child: ElevatedButton(
                                   onPressed: () {
-                                    // Navigator.push(
-                                    //   context,
-                                    //   MaterialPageRoute(
-                                    //       builder: (context) => Step2()),
-                                    // );
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => MyTickets()),
+                                    );
                                   },
                                   style: ButtonStyle(
                                     elevation: MaterialStateProperty.all(0),
@@ -184,6 +180,7 @@ class _Step4State extends State<Step4> {
                                 ),
                               ),
                             ),
+                            SizedBox(height: mQuery.size.height*0.023,)
                           ],
                         ),
                       ),

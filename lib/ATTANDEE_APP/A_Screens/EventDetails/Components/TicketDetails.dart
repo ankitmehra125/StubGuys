@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stub_guys/ATTANDEE_APP/A_Screens/EventDetails/GetTickets/Step5.dart';
 
 class TktDetails extends StatefulWidget {
   const TktDetails({super.key});
@@ -74,33 +75,41 @@ class _TktDetailsState extends State<TktDetails> {
             ),
             Row(
               children: [
-                Container(
-                  width: 140.0, // Set your desired width
-                  height: 40.0, // Set your desired height
-                  padding: const EdgeInsets.all(5.0),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFDEFBB8),
-                    borderRadius: BorderRadius.circular(
-                        20.0), // Set your desired border radius
-                  ),
-                  child: const Row(
-                    children: [
-                      SizedBox(width: 8.0),
-                      Icon(
-                        Icons.edit,
-                        color: Color(0xFF696D61),
-                        size: 12.0,
-                      ),
-                      SizedBox(width: 8.0),
-                      Text(
-                        'Edit Information',
-                        style: TextStyle(
+                GestureDetector(
+                  onTap: ()
+                  {
+                     Navigator.push(context, MaterialPageRoute(builder: (context){
+                       return Step5();
+                     }));
+                  },
+                  child: Container(
+                    width: 140.0, // Set your desired width
+                    height: 40.0, // Set your desired height
+                    padding: const EdgeInsets.all(5.0),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFDEFBB8),
+                      borderRadius: BorderRadius.circular(
+                          20.0), // Set your desired border radius
+                    ),
+                    child: const Row(
+                      children: [
+                        SizedBox(width: 8.0),
+                        Icon(
+                          Icons.edit,
                           color: Color(0xFF696D61),
-                          fontSize: 12.0,
-                          fontFamily: 'SatoshiRegular',
+                          size: 12.0,
                         ),
-                      ),
-                    ],
+                        SizedBox(width: 8.0),
+                        Text(
+                          'Edit Information',
+                          style: TextStyle(
+                            color: Color(0xFF696D61),
+                            fontSize: 12.0,
+                            fontFamily: 'SatoshiRegular',
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],

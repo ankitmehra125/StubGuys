@@ -654,10 +654,7 @@ class _EventDetailsState extends State<EventDetails> {
                                         style: TextStyle(
                                             fontFamily: 'SatoshiMedium',
                                             fontSize: 16,
-                                            color: isDropdownOpen == true
-                                                ? const Color(0xFFFFFFFF)
-                                                : const Color(0xFF696D61),
-                                            fontWeight: FontWeight.w400),
+                                            color: Colors.black),
                                       ),
                                     ),
                                   ),

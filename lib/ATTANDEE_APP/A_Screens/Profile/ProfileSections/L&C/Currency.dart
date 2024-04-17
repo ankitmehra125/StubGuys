@@ -48,7 +48,7 @@ class _CurrencyState extends State<Currency> {
             padding: const EdgeInsets.only(left: 16.0, right: 16.0),
             child: Column(
               children: [
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -61,7 +61,12 @@ class _CurrencyState extends State<Currency> {
                         fontFamily: 'SatoshiBold',
                       ),
                     ),
-                    Icon(Icons.close)
+                    GestureDetector(
+                      onTap: ()
+                        {
+                          Navigator.pop(context);
+                        },
+                        child: Icon(Icons.close))
                   ],
                 ),
                 SizedBox(
@@ -195,6 +200,7 @@ class LanguageItem extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 16.0),
                     child: SvgPicture.asset(
                       'Assets/Images/Components/Flags/tick.svg',
+                      color: Color(0xff8DC73F),
                       width: 25,
                       height: 25,
                     ),

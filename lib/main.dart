@@ -9,8 +9,12 @@ import 'package:stub_guys/ATTANDEE_APP/A_Screens/CONNECTS/popup_page.dart';
 import 'package:stub_guys/ATTANDEE_APP/A_Screens/CONNECTS/stubConnect_landing.dart';
 import 'package:stub_guys/ATTANDEE_APP/A_Screens/HomeFeeds/HomeFeed.dart';
 import 'package:stub_guys/ATTANDEE_APP/A_Screens/Profile/MyCalender.dart';
+import 'package:stub_guys/ATTANDEE_APP/A_Screens/Profile/ProfileSections/Inbox.dart';
 import 'package:stub_guys/ATTANDEE_APP/A_Screens/Splashes/Splash.dart';
 import 'package:stub_guys/ATTANDEE_APP/A_Screens/Splashes/SplashWelcome.dart';
+import 'package:stub_guys/ATTANDEE_APP/A_Screens/Support/Components/fullarticle.dart';
+import 'package:stub_guys/ATTANDEE_APP/A_Screens/Support/Components/gethelptiles.dart';
+import 'package:stub_guys/ATTANDEE_APP/A_Screens/Support/Components/queries.dart';
 import 'package:stub_guys/ATTANDEE_APP/A_Screens/Support/GetHelp.dart';
 import 'package:stub_guys/ATTANDEE_APP/A_Screens/Support/SupportMain.dart';
 
@@ -19,6 +23,7 @@ import 'package:stub_guys/ORGANISER_APP/O_Screens/Dashboard/O_DashboardHome.dart
 import 'package:stub_guys/ORGANISER_APP/O_Screens/O_Profile/O_MainProfile.dart';
 import 'package:stub_guys/SGConnectProfile.dart';
 
+import 'ATTANDEE_APP/A_Screens/Support/GetHelpTopic.dart';
 import 'ORGANISER_APP/O_Screens/CreateEvents/Process/CE_Step1.dart';
 
 void main()
@@ -43,7 +48,8 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           useMaterial3: true,
         ),
-      home: Splash(),
+      home: Splash()
     );
   }
 }
+ 

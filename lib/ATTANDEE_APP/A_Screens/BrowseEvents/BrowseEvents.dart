@@ -49,58 +49,84 @@ class _BrowseEventsState extends State<BrowseEvents> {
 
   @override
   Widget build(BuildContext context) {
+    var mQuery = MediaQuery.of(context);
     return Scaffold(
-      appBar: AppBar(
-        surfaceTintColor: Colors.white,
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  //Upcoming Events text
-                  const Text(
-                    "Upcoming\nevents",
-                    style: TextStyle(
-                      color: Color(0xFF201335),
-                      fontSize: 34,
-                      fontFamily: 'SatoshiMedium',
-                      height: 1.1,
-                    ),
+      body: Padding(
+        padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(height: mQuery.size.height*0.05,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                //Upcoming Events text
+                const Text(
+                  "Upcoming\nevents",
+                  style: TextStyle(
+                    color: Color(0xFF201335),
+                    fontSize: 34,
+                    fontFamily: 'SatoshiMedium',
+                    height: 1.1,
                   ),
-                  Expanded(child: Container()),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 5.0),
-                    child: Row(
-                      children: [
-                        GestureDetector(
-                          onTap: _searchevents,
-                          child: Container(
-                            width: 40.0,
-                            height: 40.0,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                color: const Color(
-                                    0xFF201335), // Set the color of the border
-                                width: 1.2, // Set the width of the border
-                              ),
-                            ),
-                            child: const Center(
-                              child: Icon(Icons.search),
+                ),
+                Expanded(child: Container()),
+                Padding(
+                  padding: const EdgeInsets.only(top: 5.0),
+                  child: Row(
+                    children: [
+                      GestureDetector(
+                        onTap: _searchevents,
+                        child: Container(
+                          width: 40.0,
+                          height: 40.0,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: const Color(
+                                  0xFF201335), // Set the color of the border
+                              width: 1.2, // Set the width of the border
                             ),
                           ),
+                          child: const Center(
+                            child: Icon(Icons.search),
+                          ),
                         ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.02,
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.02,
+                      ),
+                      Container(
+                        width:
+                            40.0, // Set the width of the circular container
+                        height:
+                            40.0, // Set the height of the circular container
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: const Color(
+                                0xFF201335), // Set the color of the border
+                            width: 1.2, // Set the width of the border
+                          ),
                         ),
-                        Container(
+                        child: const Center(
+                          child: Icon(Icons.location_on_outlined),
+                        ),
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.02,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Filters()),
+                          );
+                          // TODO: Add logic for Skip button if needed
+                        },
+                        child: Container(
                           width:
                               40.0, // Set the width of the circular container
                           height:
@@ -114,54 +140,25 @@ class _BrowseEventsState extends State<BrowseEvents> {
                             ),
                           ),
                           child: const Center(
-                            child: Icon(Icons.location_on_outlined),
+                            child: Icon(Icons.filter_alt_outlined),
                           ),
                         ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.02,
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Filters()),
-                            );
-                            // TODO: Add logic for Skip button if needed
-                          },
-                          child: Container(
-                            width:
-                                40.0, // Set the width of the circular container
-                            height:
-                                40.0, // Set the height of the circular container
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                color: const Color(
-                                    0xFF201335), // Set the color of the border
-                                width: 1.2, // Set the width of the border
-                              ),
-                            ),
-                            child: const Center(
-                              child: Icon(Icons.filter_alt_outlined),
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.02,
-              ),
-              TimeSelector(),
-              SizedBox( 
-                height: MediaQuery.of(context).size.height * 0.03,
-              ), 
-              ListView.builder(
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
+            ),
+            TimeSelector(),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.03,
+            ),
+            Expanded(
+              child: ListView.builder(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
                 itemCount: events.length,
                 itemBuilder: (context, index) {
                   return GestureDetector(
@@ -188,8 +185,8 @@ class _BrowseEventsState extends State<BrowseEvents> {
                   );
                 },
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

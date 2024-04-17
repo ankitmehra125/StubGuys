@@ -60,6 +60,10 @@ class _LanguageState extends State<Language> {
                       //         builder: (context) => const Profile()),
                       //   )
                       // },
+                      onTap : ()
+                      {
+                        Navigator.pop(context);
+                      },
                       child: SvgPicture.asset(
                         'Assets/Images/Components/black_back.svg',
                       ),
@@ -71,7 +75,7 @@ class _LanguageState extends State<Language> {
                       'Choose Language\n& Currency',
                       style: TextStyle(
                         color: Color(0xFF201335),
-                        fontSize: 38.0,
+                        fontSize: 32.0,
                         height: 1.1,
                         fontFamily: 'SatoshiMedium',
                       ),
@@ -210,6 +214,7 @@ class LanguageItem extends StatelessWidget {
                     child: SvgPicture.asset(
                       'Assets/Images/Components/Flags/tick.svg',
                       width: 25,
+                      color: Color(0xff8DC73F),
                       height: 25,
                     ),
                   ),

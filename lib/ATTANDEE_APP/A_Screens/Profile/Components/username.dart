@@ -80,14 +80,18 @@ class _OtherUserNameGenderState extends State<OtherUserNameGender> {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
+        var mQuery = MediaQuery.of(context);
         // Pass the callback function to SelectGender
-        return SelectGender(
-          onGenderSelected: (selectedGender) {
-            setState(() {
-              // Update the text field with the selected gender
-              widget._textController.text = selectedGender;
-            });
-          },
+        return Container(
+          height: mQuery.size.height*0.35,
+          child: SelectGender(
+            onGenderSelected: (selectedGender) {
+              setState(() {
+                // Update the text field with the selected gender
+                widget._textController.text = selectedGender;
+              });
+            },
+          ),
         );
       },
     );
@@ -96,7 +100,7 @@ class _OtherUserNameGenderState extends State<OtherUserNameGender> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 250, // Set your desired width
+      width: 170, // Set your desired width
       height: 50.0, // Set your desired height
       child: Row(
         children: [

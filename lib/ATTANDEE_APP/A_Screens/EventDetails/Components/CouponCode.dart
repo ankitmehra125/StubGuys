@@ -16,7 +16,7 @@ class CouponCodeState extends State<CouponCode> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 250, // Set your desired width
+      width: 200, // Set your desired width
       height: 50.0, // Set your desired height
       child: TextField(
         controller: _couponController,

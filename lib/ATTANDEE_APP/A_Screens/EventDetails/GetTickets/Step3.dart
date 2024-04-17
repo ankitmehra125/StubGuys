@@ -43,6 +43,7 @@ class _Step3State extends State<Step3> {
   }
   @override
   Widget build(BuildContext context) {
+    var mQuery = MediaQuery.of(context);
     return Scaffold(
       body: Container(
         color: const Color(0xFF201335),
@@ -129,7 +130,7 @@ class _Step3State extends State<Step3> {
                           topRight: Radius.circular(30.0),
                         ),
                       ),
-                      child: Column(
+                      child: ListView(
                         children: [
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.03,
@@ -329,44 +330,42 @@ class _Step3State extends State<Step3> {
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.04,
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 16, right: 16),
-                            child: Container(
-                              width: double.infinity,
-                              height: MediaQuery.of(context).size.height * 0.07,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(
-                                    20.0), // Adjust the radius as needed
-                                border: Border.all(
-                                  color: const Color(0xFFF1F1F2),
-                                  width: 2.0, // Set your desired border width
+                          Container(
+                            width: double.infinity,
+                            height: MediaQuery.of(context).size.height * 0.07,
+                            margin: EdgeInsets.symmetric(
+                              horizontal: 14
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(
+                                  20.0), // Adjust the radius as needed
+                              border: Border.all(
+                                color: const Color(0xFFF1F1F2),
+                                width: 2.0, // Set your desired border width
+                              ),
+                              // Set your desired background color
+                            ),
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: MediaQuery.of(context).size.width *
+                                      0.03,
                                 ),
-                                // Set your desired background color
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  SizedBox(
-                                    width: MediaQuery.of(context).size.width *
-                                        0.04,
+                                const Text(
+                                  "Coupon Code",
+                                  style: TextStyle(
+                                    color: Color(0xFFB9B9B9),
+                                    fontSize: 16.0,
+                                    fontFamily: 'SatoshiBold',
                                   ),
-                                  const Text(
-                                    "Coupon Code",
-                                    style: TextStyle(
-                                      color: Color(0xFFB9B9B9),
-                                      fontSize: 16.0,
-                                      fontFamily: 'SatoshiBold',
-                                    ),
-                                  ),
-                                  Expanded(child: Container()),
-                                  const CouponCode(),
-                                ],
-                              ),
+                                ),
+
+                                const CouponCode(),
+                              ],
                             ),
                           ),
                           SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.01,
+                            height: MediaQuery.of(context).size.height * 0.02,
                           ),
                           const Padding(
                             padding: const EdgeInsets.only(left: 16.0),
@@ -387,6 +386,7 @@ class _Step3State extends State<Step3> {
                           Expanded(
                             child: Container(),
                           ),
+                          SizedBox(height: mQuery.size.height*0.023,),
                           Expanded(
                             child: Padding(
                               padding: const EdgeInsets.only(
@@ -417,7 +417,7 @@ class _Step3State extends State<Step3> {
                                   child: Container(
                                     width: double.infinity,
                                     // Set your desired width
-                                    height: 55.0,
+                                    height: mQuery.size.height*0.065,
                                     // Set your desired height
                                     child: const Center(
                                       child: Text(
@@ -434,9 +434,7 @@ class _Step3State extends State<Step3> {
                               ),
                             ),
                           ),
-                          SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.005,
-                          ),
+                          SizedBox(height: mQuery.size.height*0.03,)
                         ],
                       ),
                     ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:stub_guys/ATTANDEE_APP/A_Screens/Profile/Mainprofile.dart';
 
 import 'package:stub_guys/ATTANDEE_APP/A_Screens/Profile/ProfileSections/L&C/Currency.dart';
 import 'package:stub_guys/ATTANDEE_APP/A_Screens/Profile/ProfileSections/L&C/Language.dart';
@@ -26,8 +27,16 @@ class _LanguageAndCurrencyState extends State<LanguageAndCurrency> {
             Row(
               children: [
                 Center(
-                    child: SvgPicture.asset(
-                        "Assets/Images/Components/black_back.svg")),
+                    child: GestureDetector(
+                      onTap: ()
+                      {
+                        Navigator.push(context, MaterialPageRoute(builder: (context){
+                          return Profile();
+                        }));
+                      },
+                      child: SvgPicture.asset(
+                          "Assets/Images/Components/black_back.svg"),
+                    )),
                 SizedBox(
                   width: mQuery.size.width * 0.047,
                 ),

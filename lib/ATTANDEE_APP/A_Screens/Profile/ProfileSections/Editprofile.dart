@@ -27,6 +27,7 @@ class _EditProfileState extends State<EditProfile> {
 
   @override
   Widget build(BuildContext context) {
+    var mQuery = MediaQuery.of(context);
     return Scaffold(
       body: Column(
         children: [
@@ -373,8 +374,7 @@ class _EditProfileState extends State<EditProfile> {
                                   child: Container(
                                     width: double.infinity,
                                     height:
-                                        MediaQuery.of(context).size.height *
-                                            0.07,
+                                        MediaQuery.of(context).size.height * 0.08,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(
                                           20.0), // Adjust the radius as needed
@@ -385,28 +385,24 @@ class _EditProfileState extends State<EditProfile> {
                                       ),
                                       // Set your desired background color
                                     ),
-                                    child: SingleChildScrollView(
-                                      scrollDirection: Axis.horizontal,
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          const Padding(
-                                            padding:
-                                                EdgeInsets.only(left: 16.0),
-                                            child: Text(
-                                              "Gender",
-                                              style: TextStyle(
-                                                color: Color(0xFFE3E3E3),
-                                                fontSize: 16.0,
-                                                fontFamily: 'SatoshiMedium',
-                                              ),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        const Padding(
+                                          padding:
+                                              EdgeInsets.only(left: 16.0),
+                                          child: Text(
+                                            "Gender",
+                                            style: TextStyle(
+                                              color: Color(0xFFE3E3E3),
+                                              fontSize: 16.0,
+                                              fontFamily: 'SatoshiMedium',
                                             ),
                                           ),
-                                          SizedBox(width: 32,),
-                                          OtherUserNameGender(value: 'Male'),
-                                        ],
-                                      ),
+                                        ),
+                                        SizedBox(width: mQuery.size.width*0.16,),
+                                        OtherUserNameGender(value: 'Male'),
+                                      ],
                                     ),
                                   ),
                                 ),

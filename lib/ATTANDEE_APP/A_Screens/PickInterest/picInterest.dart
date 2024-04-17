@@ -29,7 +29,6 @@ class _picInterestState extends State<picInterest> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: SizedBox(
         width: double.infinity,
         child: Stack(

@@ -21,11 +21,11 @@ class _SupportmainState extends State<Supportmain> {
               Container(
                 color: const Color(0xFF201335),
                 width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.27,
+                height: MediaQuery.of(context).size.height * 0.245,
               ),
               Padding(
                 padding:
-                    const EdgeInsets.only(left: 16.0, right: 16.0, top: 25),
+                    const EdgeInsets.only(left: 16.0, right: 16.0, top: 35.0),
                 child: Column(
                   children: [
                     //Cross and logo
@@ -114,24 +114,33 @@ class _SupportmainState extends State<Supportmain> {
                       child: Column(
                         children: [
                           //Messages
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                left: 15.0, right: 12.0, top: 15.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                const Text(
-                                  "Messages",
-                                  style: TextStyle(
-                                    color: Color(0xFF201335),
-                                    fontSize: 14,
-                                    fontFamily: 'SatoshiBold',
+                          GestureDetector(
+                            onTap: () => {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Gethelp()),
+                              )
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 15.0, right: 12.0, top: 15.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  const Text(
+                                    "Messages",
+                                    style: TextStyle(
+                                      color: Color(0xFF201335),
+                                      fontSize: 14,
+                                      fontFamily: 'SatoshiBold',
+                                    ),
                                   ),
-                                ),
-                                SvgPicture.asset(
-                                  'Assets/Images/Icon/HelpSupport/messages.svg',
-                                ),
-                              ],
+                                  SvgPicture.asset(
+                                    'Assets/Images/Icon/HelpSupport/messages.svg',
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                           const Padding(
@@ -183,111 +192,127 @@ class _SupportmainState extends State<Supportmain> {
                       height: MediaQuery.of(context).size.height * 0.02,
                     ),
                     // Send us a message
-                    Container(
-                        width: double.infinity,
-                        // height: MediaQuery.of(context).size.height * 0.12,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10.0),
-                          border: Border.all(
-                            color: const Color(0xFFF1F1F2),
-                            width: 1.0,
+                    GestureDetector(
+                      onTap: ()
+                      {
+                        Navigator.push(context, MaterialPageRoute(builder: (context){
+                          return Gethelp();
+                        }));
+                      },
+                      child: Container(
+                          width: double.infinity,
+                          // height: MediaQuery.of(context).size.height * 0.12,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10.0),
+                            border: Border.all(
+                              color: const Color(0xFFF1F1F2),
+                              width: 1.0,
+                            ),
                           ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                              left: 15.0, right: 12.0, top: 15.0, bottom: 15.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Send us a message",
-                                    style: TextStyle(
-                                      color: Color(0xFF201335),
-                                      fontSize: 14,
-                                      fontFamily: 'SatoshiBold',
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                                left: 15.0, right: 12.0, top: 15.0, bottom: 15.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                const Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Send us a message",
+                                      style: TextStyle(
+                                        color: Color(0xFF201335),
+                                        fontSize: 14,
+                                        fontFamily: 'SatoshiBold',
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    "We typically reply in a few minutes",
-                                    style: TextStyle(
-                                      color: Color(0xFFC4C4C4),
-                                      fontSize: 14,
-                                      fontFamily: 'SatoshiRegular',
+                                    Text(
+                                      "We typically reply in a few minutes",
+                                      style: TextStyle(
+                                        color: Color(0xFFC4C4C4),
+                                        fontSize: 14,
+                                        fontFamily: 'SatoshiRegular',
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                              SvgPicture.asset(
-                                'Assets/Images/Icon/HelpSupport/send.svg',
-                              ),
-                            ],
-                          ),
-                        )),
+                                  ],
+                                ),
+                                SvgPicture.asset(
+                                  'Assets/Images/Icon/HelpSupport/send.svg',
+                                ),
+                              ],
+                            ),
+                          )),
+                    ),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.02,
                     ),
                     // Search for help
-                    Container(
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(8.0),
-                          border: Border.all(
-                            color: const Color(0xFFF1F1F2),
-                            width: 1.0,
+                    GestureDetector(
+                      onTap: ()
+                      {
+                        Navigator.push(context, MaterialPageRoute(builder: (context){
+                          return Gethelp();
+                        }));
+                      },
+                      child: Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8.0),
+                            border: Border.all(
+                              color: const Color(0xFFF1F1F2),
+                              width: 1.0,
+                            ),
                           ),
-                        ),
-                        child: Padding(
-                            padding: const EdgeInsets.only(
-                                left: 15.0, right: 12.0, top: 12.0, bottom: 2.0),
-                            child: Column(
-                              children: [
-                                TextField(
-                                  cursorColor: Colors.grey,
-                                  decoration: InputDecoration(
-                                    filled: true,
-                                    fillColor: const Color(
-                                        0xFFF9F9F9), // Set the background color
-                                    hintText: 'Search for help',
-                                    hintStyle: const TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 15,
-                                        color: Color(0xFFABAFB1)),
-                                    contentPadding: const EdgeInsets.all(10.0),
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(
-                                          12.0), // Set the border radius
-                                      borderSide:
-                                          BorderSide.none, // Set no border color
+                          child: Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 15.0, right: 12.0, top: 12.0, bottom: 2.0),
+                              child: Column(
+                                children: [
+                                  TextField(
+                                    cursorColor: Colors.grey,
+                                    decoration: InputDecoration(
+                                      filled: true,
+                                      fillColor: const Color(
+                                          0xFFF9F9F9), // Set the background color
+                                      hintText: 'Search for help',
+                                      hintStyle: const TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 15,
+                                          color: Color(0xFFABAFB1)),
+                                      contentPadding: const EdgeInsets.all(10.0),
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(
+                                            12.0), // Set the border radius
+                                        borderSide:
+                                            BorderSide.none, // Set no border color
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(10.0),
+                                        borderSide: BorderSide.none,
+                                      ),
+                                      suffixIcon: const Icon(
+                                        Icons.search,
+                                        color: Colors.grey,
+                                      ), // Add the search icon
                                     ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      borderSide: BorderSide.none,
-                                    ),
-                                    suffixIcon: const Icon(
-                                      Icons.search,
-                                      color: Colors.grey,
-                                    ), // Add the search icon
                                   ),
-                                ), 
-                                const SizedBox(
-                                  height: 7.0,
-                                ),
-                                const Queries(
-                                  title: 'How to Create an Organizer Account',
-                                ),
-                                const Queries(
-                                  title: 'How do I contact Stubguys?',
-                                ),
-                                const Queries(
-                                  title: 'How Can I get a Refund for tickets?',
-                                ),
-                              ],
-                            ))),
+                                  const SizedBox(
+                                    height: 7.0,
+                                  ),
+                                  const Queries(
+                                    title: 'How to Create an Organizer Account',
+                                  ),
+                                  const Queries(
+                                    title: 'How do I contact Stubguys?',
+                                  ),
+                                  const Queries(
+                                    title: 'How Can I get a Refund for tickets?',
+                                  ),
+                                ],
+                              ))),
+                    ),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.02,
                     ),
@@ -389,7 +414,7 @@ class _SupportmainState extends State<Supportmain> {
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.02,
                     ),
-                    
+                            
                     GestureDetector(
                       onTap: ()
                       {

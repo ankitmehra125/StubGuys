@@ -15,6 +15,7 @@ class Step2 extends StatefulWidget {
 class _Step2State extends State<Step2> {
   @override
   Widget build(BuildContext context) {
+    var mQuery = MediaQuery.of(context);
     return Scaffold(
       body: Container(
         color: const Color(0xFF201335),
@@ -112,7 +113,7 @@ class _Step2State extends State<Step2> {
                               Container(
                                 width: MediaQuery.of(context).size.width * 0.9,
                                 height:
-                                    MediaQuery.of(context).size.height * 0.27,
+                                MediaQuery.of(context).size.height * 0.27,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20.0),
                                   color: Colors.amber,
@@ -135,8 +136,8 @@ class _Step2State extends State<Step2> {
                                   children: [
                                     SizedBox(
                                       height:
-                                          MediaQuery.of(context).size.height *
-                                              0.14,
+                                      MediaQuery.of(context).size.height *
+                                          0.14,
                                     ),
                                     const Text(
                                       "June 21",
@@ -148,8 +149,8 @@ class _Step2State extends State<Step2> {
                                     ),
                                     SizedBox(
                                       height:
-                                          MediaQuery.of(context).size.height *
-                                              0.01,
+                                      MediaQuery.of(context).size.height *
+                                          0.01,
                                     ),
                                     const Text(
                                       "Unleashing Africa’s Future with Bill Gates.",
@@ -198,7 +199,7 @@ class _Step2State extends State<Step2> {
                             ),
                           ),
                           SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.05,
+                            height: MediaQuery.of(context).size.height * 0.03,
                           ),
                           const Center(
                             child: Text(
@@ -211,7 +212,7 @@ class _Step2State extends State<Step2> {
                             ),
                           ),
                           SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.005,
+                            height: MediaQuery.of(context).size.height * 0.003,
                           ),
                           const Center(
                             child: Text(
@@ -224,7 +225,7 @@ class _Step2State extends State<Step2> {
                             ),
                           ),
                           SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.04,
+                            height: MediaQuery.of(context).size.height * 0.03,
                           ),
                           MyCarousel(),
                           const Center(
@@ -237,57 +238,62 @@ class _Step2State extends State<Step2> {
                               ),
                             ),
                           ),
-                          SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.005,
-                          ),
-                          Expanded(child: Container(),),
+                         
                           Expanded(
                             child: Padding(
                               padding: const EdgeInsets.only(
                                   left: 15.0, right: 15.0),
-                              child: Center(
-                                child: ElevatedButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => Step3()),
-                                    );
-                                  },
-                                  style: ButtonStyle(
-                                    elevation: MaterialStateProperty.all(0),
-                                    // Set elevation to 0
-                                    backgroundColor: MaterialStateProperty.all(
-                                      Color(0xFF8DC73F),
-                                    ),
-                                    // Set your desired color
-                                    shape: MaterialStateProperty.all(
-                                      RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(
-                                            15.0), // Set your desired border radius
-                                      ),
-                                    ),
-                                  ),
-                                  child: const SizedBox(
-                                    width: double.infinity,
-                                    // Set your desired width
-                                    height: 55.0,
-                                    // Set your desired height
-                                    child: Center(
-                                      child: Text(
-                                        'Checkout',
-                                        style: TextStyle(
-                                          fontSize: 16.0,
-                                          color: Colors.white,
-                                          fontFamily: 'SatoshiBold',
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  children: [
+                                    Center(
+                                      child: ElevatedButton(
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) => Step3()),
+                                          );
+                                        },
+                                        style: ButtonStyle(
+                                          elevation: MaterialStateProperty.all(0),
+                                          // Set elevation to 0
+                                          backgroundColor: MaterialStateProperty.all(
+                                            Color(0xFF8DC73F),
+                                          ),
+                                          // Set your desired color
+                                          shape: MaterialStateProperty.all(
+                                            RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.circular(
+                                                  15.0), // Set your desired border radius
+                                            ),
+                                          ),
+                                        ),
+                                        child:  SizedBox(
+                                          width: double.infinity,
+                                          // Set your desired width
+                                          height: mQuery.size.height*0.065,
+                                          // Set your desired height
+                                          child: Center(
+                                            child: Text(
+                                              'Checkout',
+                                              style: TextStyle(
+                                                fontSize: 16.0,
+                                                color: Colors.white,
+                                                fontFamily: 'SatoshiBold',
+                                              ),
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
+                                    SizedBox(height: mQuery.size.height*0.023,)
+                                  ],
                                 ),
                               ),
                             ),
                           ),
+
                         ],
                       ),
                     ),

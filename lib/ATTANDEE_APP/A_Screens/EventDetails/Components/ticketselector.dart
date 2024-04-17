@@ -53,7 +53,7 @@ class _MyCarouselState extends State<MyCarousel> {
                   child: Text(
                     '$i',
                     style: TextStyle(
-                      fontSize: _currentIndex == i - 1 ? 76 : 35,
+                      fontSize: _currentIndex == i - 1 ? 70 : 30,
                       fontFamily: 'SatoshiBold',
                       color:
                           _currentIndex == i - 1 ? Color(0xFF201335) : Color(0xFFF1F1F2),

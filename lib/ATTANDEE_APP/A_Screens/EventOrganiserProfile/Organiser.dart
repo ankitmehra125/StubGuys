@@ -279,7 +279,7 @@ class _OrganizerState extends State<Organizer> {
                                       style: TextStyle(
                                         fontFamily: 'SatoshiBold',
                                         fontSize:
-                                            selectedTextIndex == 0 ? 40 : 38,
+                                            selectedTextIndex == 0 ? 32 : 30,
                                         color: selectedTextIndex == 0
                                             ? Color(0xFF201335)
                                             : Color(0xFFD6D6D6),
@@ -310,7 +310,7 @@ class _OrganizerState extends State<Organizer> {
                                       style: TextStyle(
                                         fontFamily: 'SatoshiBold',
                                         fontSize:
-                                            selectedTextIndex == 0 ? 40 : 38,
+                                            selectedTextIndex == 0 ? 32 : 30,
                                         color: selectedTextIndex == 0
                                             ? Color(0xFFD6D6D6)
                                             : Color(0xFF201335),
