@@ -32,6 +32,7 @@ class _NotificationsState extends State<Notifications> {
                       //   MaterialPageRoute(
                       //       builder: (context) => const EventDetails()),
                       // );
+                      Navigator.of(context).pop();
                     },
                     child: Container(
                       width: 50,

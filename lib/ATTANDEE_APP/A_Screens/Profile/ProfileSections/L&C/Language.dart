@@ -35,16 +35,13 @@ class _LanguageState extends State<Language> {
 
   @override
   Widget build(BuildContext context) {
+    var mQuery = MediaQuery.of(context);
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.white,
-        elevation: 0,
-      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(height: mQuery.size.height*0.065,),
           Padding(
             padding: const EdgeInsets.only(left: 16.0, right: 16.0),
             child: Column(

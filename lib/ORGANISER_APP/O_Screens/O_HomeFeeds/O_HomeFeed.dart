@@ -9,7 +9,6 @@ import 'package:stub_guys/ORGANISER_APP/O_Screens/ManageOrders/O_ManageOrders.da
 import 'package:stub_guys/ORGANISER_APP/O_Screens/O_Profile/O_MainProfile.dart';
 import 'package:stub_guys/ORGANISER_APP/O_Screens/O_QR/QR.dart';
 import 'package:stub_guys/ORGANISER_APP/OrgDashBoarad/dashboard_home.dart';
-
 import '../CreateEvents/Components/Step4_HashTagFileds.dart/LocationFeatureField.dart';
 import '../CreateEvents/Process/CE_Step1.dart';
 
@@ -27,9 +26,9 @@ class _O_HomeFeedState extends State<O_HomeFeed> {
 
   final List<Widget> _pages = [
     // const O_Dashboard(),
-    DashBoardHome(),
+    const DashBoardHome(),
     QRViewExample(),
-    CE_Step1(),
+    const CE_Step1(),
     const ManageOrders(),
     const O_Profile(),
   ];

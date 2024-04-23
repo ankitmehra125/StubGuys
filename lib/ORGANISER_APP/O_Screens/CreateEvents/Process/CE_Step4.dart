@@ -16,6 +16,7 @@ class _CE_Step4State extends State<CE_Step4> {
   late String FileName;
 
   void _onLocationFeature(BuildContext context) {
+    var mQuery = MediaQuery.of(context);
     showModalBottomSheet(
         context: context,
         builder: (BuildContext context) {
@@ -78,6 +79,7 @@ class _CE_Step4State extends State<CE_Step4> {
 
   @override
   Widget build(BuildContext context) {
+    var mQuery = MediaQuery.of(context);
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -158,7 +160,7 @@ class _CE_Step4State extends State<CE_Step4> {
                     },
                     child: Container(
                       width: double.infinity,
-                      height: MediaQuery.of(context).size.height * 0.06,
+                      height: MediaQuery.of(context).size.height * 0.075,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(
@@ -214,6 +216,14 @@ class _CE_Step4State extends State<CE_Step4> {
                   //Location
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.02,
+                  ),
+                  Text(
+                    "Add Location Features and Amenities",
+                    style: TextStyle(
+                      color: Color(0xff5E6366),
+                      fontSize: 12,
+                      fontFamily: 'SatoshiMedium',
+                    ),
                   ),
                 ],
               ),

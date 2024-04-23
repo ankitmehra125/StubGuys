@@ -63,15 +63,6 @@ class _O_ProfileState extends State<O_Profile> {
                       ),
                       Expanded(child: Container()),
                       // Help and support
-                      GestureDetector(
-                        onTap: () => {},
-                        child: SvgPicture.asset(
-                          'Assets/Images/Icon/helpsupport.svg',
-                        ),
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.025,
-                      ),
                       Padding(
                         padding: EdgeInsets.only(
                             right: 12
@@ -111,22 +102,30 @@ class _O_ProfileState extends State<O_Profile> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        SizedBox(
-                          width: 120,
-                          height: 120,
-                          child: Stack(
-                            alignment: Alignment.center,
-                            children: [
-                              SvgPicture.asset(
-                                'Assets/ORGANISER_APP/Images/O_Profile/profilecircle.svg',
-                              ),
-                              SizedBox(
-                                width: 60,
-                                height: 60,
-                                child: Image.asset(
-                                    "Assets/Images/Icon/stubguys.png"),
-                              )
-                            ],
+                        GestureDetector(
+                          onTap : ()
+                          {
+                            Navigator.push(context, MaterialPageRoute(builder: (context){
+                              return EditProfile();
+                            }));
+                          },
+                          child: SizedBox(
+                            width: 120,
+                            height: 120,
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                SvgPicture.asset(
+                                  'Assets/ORGANISER_APP/Images/O_Profile/profilecircle.svg',
+                                ),
+                                SizedBox(
+                                  width: 60,
+                                  height: 60,
+                                  child: Image.asset(
+                                      "Assets/Images/Icon/stubguys.png"),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                         SizedBox(
@@ -276,7 +275,7 @@ class _O_ProfileState extends State<O_Profile> {
                     onTap: () => {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Location()),
+                        MaterialPageRoute(builder: (context) => Language()),
                       )
                     },
                     child: Padding(

@@ -2,6 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:stub_guys/ATTANDEE_APP/A_Screens/Profile/ProfileSections/Notifications.dart/Notifications.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 import '../O_Screens/O_AttendeesList/Attendees.dart';
@@ -18,7 +19,6 @@ class _DashBoardHomeState extends State<DashBoardHome> {
   var ticket = 12;
   // Define map containing values for UI
   final Map<String, dynamic> uiValues = {
-    'reportTitle': "Reports for",
     'organizerName': "StubGuys Organizer",
     'organizerTextColor': Color(0xff8DC73F),
     'organizerDropdownIcon': Icons.keyboard_arrow_down,
@@ -114,19 +114,32 @@ class _DashBoardHomeState extends State<DashBoardHome> {
                       },
                       child: SvgPicture.asset('Assets/ORGANISER_APP/Icons/Dashboard/hamburger.svg')),
                   SizedBox(width: mQuery.size.width * 0.045),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                    child: badges.Badge(
-                      badgeStyle: badges.BadgeStyle(
-                        badgeColor: Color(0xff8DC73F)
-                      ),
-                      badgeContent: Text("3",style: TextStyle(
-                        fontSize: 13,
-                        fontFamily: 'SatoshiBold',
-                        color: Colors.white
-                      ),),
-                        // position:badges.BadgePosition.bottomEnd(bottom: 2),
-                        child: SvgPicture.asset('Assets/ORGANISER_APP/Icons/Dashboard/bell.svg')),
+                  GestureDetector(
+                    onTap: ()
+                    {
+                      showModalBottomSheet(
+                        context: context,
+                        isScrollControlled: true,
+                        builder: (BuildContext context)
+                          {
+                            return Notifications();
+                          }
+                      );
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 20),
+                      child: badges.Badge(
+                        badgeStyle: badges.BadgeStyle(
+                          badgeColor: Color(0xff8DC73F)
+                        ),
+                        badgeContent: Text("3",style: TextStyle(
+                          fontSize: 13,
+                          fontFamily: 'SatoshiBold',
+                          color: Colors.white
+                        ),),
+                          // position:badges.BadgePosition.bottomEnd(bottom: 2),
+                          child: SvgPicture.asset('Assets/ORGANISER_APP/Icons/Dashboard/bell.svg')),
+                    ),
                   ),
                 ],
               ),
@@ -137,7 +150,7 @@ class _DashBoardHomeState extends State<DashBoardHome> {
                     TextSpan(
                       children: [
                         TextSpan(
-                          text: uiValues['reportTitle'],
+                          text: "Reports for",
                           style: TextStyle(
                             fontSize: uiValues['uiBoxTextFontSizeRegular'],
                             color: uiValues['uiBoxTextColor'],
@@ -526,7 +539,7 @@ class _DashBoardHomeState extends State<DashBoardHome> {
                       Divider(
                         color: Color(0xffF1F1F2),
                       ),
-                      SizedBox(height: mQuery.size.height*0.07),
+                      SizedBox(height: mQuery.size.height*0.05),
                       Center(
                         child: Container(
                           width: 30,

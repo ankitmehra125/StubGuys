@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:dotted_line/dotted_line.dart';
+import 'package:badges/badges.dart' as badges;
+import 'package:stub_guys/ORGANISER_APP/O_Screens/CreateEvents/Process/CE_Step1.dart';
+
+import '../../../ATTANDEE_APP/A_Screens/Profile/ProfileSections/Notifications.dart/Notifications.dart';
 
 class CreateEventsMain extends StatefulWidget {
   CreateEventsMain({Key? key}) : super(key: key);
@@ -139,315 +143,304 @@ class _CreateEventsMainState extends State<CreateEventsMain> {
       });
     }
     return Scaffold(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.07),
-                  Stack(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
-                            "My Events",
-                            style: TextStyle(
-                              fontFamily: 'SatoshiBold',
-                              fontSize: 40,
-                            ),
-                          ),
-                          Row(
-                            children: [
-                              SvgPicture.asset(
-                                  "Assets/Images/Icon/hamburger.svg"),
-                              const SizedBox(width: 10),
-                              SvgPicture.asset("Assets/Images/Icon/bell.svg"),
-                            ],
-                          ),
-                        ],
-                      ),
-                      Positioned(
-                        right: 0,
-                        child: Container(
-                          height: 20,
-                          width: 20,
-                          decoration: const BoxDecoration(
-                            color: Color(0xff8DC73F),
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(10),
-                            ),
-                          ),
-                          child: const Center(
-                            child: Text(
-                              "3",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 12),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-                  Container(
-                    width: MediaQuery.of(context).size.width * 0.8,
-                    height: MediaQuery.of(context).size.height * 0.04,
-                    child: Row(
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.07),
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        _buildFilter("All", 1),
-                        _buildFilter("Now", 2),
-                        _buildFilter("Upcoming", 3),
-                        _buildFilter("Past", 4),
+                        const Text(
+                          "My Events",
+                          style: TextStyle(
+                            fontFamily: 'SatoshiBold',
+                            fontSize: 32,
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            SvgPicture.asset(
+                                "Assets/Images/Icon/hamburger.svg"),
+                            const SizedBox(width: 10),
+
+                            GestureDetector(
+                              onTap: ()
+                              {
+                                showModalBottomSheet(context: context,
+                                  isScrollControlled: true,
+                                  builder: (BuildContext context)
+                                    {
+                                      return Notifications();
+                                    }
+                                );
+                              },
+                              child: badges.Badge(
+                                badgeContent: Text("3",style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 13
+                                ),),
+                                badgeStyle: badges.BadgeStyle(
+                                  badgeColor: Color(0xff8DC73F),
+                                ),
+                                child: SvgPicture.asset("Assets/Images/Icon/bell.svg"),
+                              ),
+                            )
+                          ],
+                        ),
                       ],
                     ),
-                  ),
-                  Stack(children: [
-                    isEmpty == false
-                        ? Container(
-                            height: MediaQuery.of(context).size.height * 0.675,
-                            child: Expanded(
-                              child: ListView.builder(
-                                itemCount: eventData.length,
-                                itemBuilder: (BuildContext context, int index) {
-                                  Map<String, dynamic> event = eventData[index];
-                                  return Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      SizedBox(
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                                0.3,
-                                        child: Column(
-                                          mainAxisAlignment: index == 0
-                                              ? MainAxisAlignment.end
-                                              : MainAxisAlignment.start,
-                                          children: [
-                                            index != 0
-                                                ? Container(
-                                                    height:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .width *
-                                                            0.335,
-                                                    child: const DottedLine(
-                                                      dashColor:
-                                                          Color(0xff8DC73F),
-                                                      direction: Axis.vertical,
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.8,
+                      height: MediaQuery.of(context).size.height * 0.04,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          _buildFilter("All", 1),
+                          _buildFilter("Now", 2),
+                          _buildFilter("Upcoming", 3),
+                          _buildFilter("Past", 4),
+                        ],
+                      ),
+                    ),
+                    Stack(children: [
+                      isEmpty == false
+                          ? Container(
+                              height: MediaQuery.of(context).size.height * 0.675,
+                              child: Expanded(
+                                child: ListView.builder(
+                                  itemCount: eventData.length,
+                                  itemBuilder: (BuildContext context, int index) {
+                                    Map<String, dynamic> event = eventData[index];
+                                    return SingleChildScrollView(
+                                      scrollDirection: Axis.horizontal,
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          SizedBox(height: MediaQuery.of(context).size.height * 0.3,
+                                            child: SingleChildScrollView(
+                                              child: Column(
+                                                mainAxisAlignment: index == 0
+                                                    ? MainAxisAlignment.end
+                                                    : MainAxisAlignment.start,
+                                                children: [
+                                                  index != 0
+                                                      ? Container(
+                                                          height: MediaQuery.of(context).size.width * 0.335,
+                                                          child: const DottedLine(
+                                                            dashColor: Color(0xff8DC73F),
+                                                            direction: Axis.vertical,
+                                                          ),
+                                                        )
+                                                      : Container(),
+                                                  Container(
+                                                    height: MediaQuery.of(context).size.width * 0.1,
+                                                    width: MediaQuery.of(context).size.width * 0.1,
+                                                    decoration: BoxDecoration(
+                                                      color: const Color(0xff8DC73F),
+                                                      borderRadius: BorderRadius.all(
+                                                        Radius.circular(MediaQuery.of(context).size.height * 0.045),
+                                                      ),
                                                     ),
-                                                  )
-                                                : Container(),
-                                            Container(
-                                              height: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.1,
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.1,
-                                              decoration: BoxDecoration(
-                                                color: const Color(0xff8DC73F),
-                                                borderRadius: BorderRadius.all(
-                                                  Radius.circular(
-                                                      MediaQuery.of(context)
-                                                              .size
-                                                              .height *
-                                                          0.045),
-                                                ),
+                                                    child: Center(
+                                                      child: Text(
+                                                        "${event['goingCount']}",
+                                                        style: const TextStyle(
+                                                          color: Colors.white,
+                                                          fontSize: 12,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    height: MediaQuery.of(context)
+                                                            .size
+                                                            .height *
+                                                        0.02,
+                                                    child: const Text(
+                                                      "Going",
+                                                      style: TextStyle(
+                                                        height: 1,
+                                                        fontFamily: 'Santoshi',
+                                                        fontSize: 12,
+                                                        color: Color(0xff8DC73F),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  (eventData.length - 1) != index
+                                                      ? Container(
+                                                          height:
+                                                              MediaQuery.of(context)
+                                                                      .size
+                                                                      .width *
+                                                                  0.17,
+                                                          child: const DottedLine(
+                                                            dashColor:
+                                                                Color(0xff8DC73F),
+                                                            direction: Axis.vertical,
+                                                          ),
+                                                        )
+                                                      : Container()
+                                                ],
                                               ),
-                                              child: Center(
-                                                child: Text(
-                                                  "${event['goingCount']}",
-                                                  style: const TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 12,
+                                            ),
+                                          ),
+                                          Container(
+                                            height: MediaQuery.of(context).size.height * 0.3,
+                                            width : MediaQuery.of(context).size.width*0.9,
+                                            child: Stack(
+                                              children: [
+                                                Padding(
+                                                  padding: const EdgeInsets.all(8.0),
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        const BorderRadius.all(Radius.circular(10)),
+                                                    child: Image.asset(
+                                                      event['imagePath'],
+                                                      // 'Assets/Images/Icon/MyEvent1.png',
+                                                      fit: BoxFit.cover,
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                            ),
-                                            Container(
-                                              height: MediaQuery.of(context)
-                                                      .size
-                                                      .height *
-                                                  0.02,
-                                              child: const Text(
-                                                "Going",
-                                                style: TextStyle(
-                                                  height: 1,
-                                                  fontFamily: 'Santoshi',
-                                                  fontSize: 12,
-                                                  color: Color(0xff8DC73F),
-                                                ),
-                                              ),
-                                            ),
-                                            (eventData.length - 1) != index
-                                                ? Container(
-                                                    height:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .width *
-                                                            0.17,
-                                                    child: const DottedLine(
-                                                      dashColor:
-                                                          Color(0xff8DC73F),
-                                                      direction: Axis.vertical,
-                                                    ),
-                                                  )
-                                                : Container()
-                                          ],
-                                        ),
-                                      ),
-                                      Container(
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                                0.3,
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.8,
-                                        child: Stack(
-                                          children: [
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    const BorderRadius.all(
-                                                        Radius.circular(10)),
-                                                child: Image.asset(
-                                                  event['imagePath'],
-                                                  // 'Assets/Images/Icon/MyEvent1.png',
-                                                  fit: BoxFit.cover,
-                                                ),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.all(20.0),
-                                              child: SizedBox(
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.7,
-                                                child: Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.end,
-                                                  children: [
-                                                    Text(
-                                                      event['title'],
-                                                      style: const TextStyle(
-                                                          color: Colors.white,
-                                                          fontFamily:
-                                                              'Santoshi',
-                                                          fontSize: 16,
-                                                          fontWeight:
-                                                              FontWeight.w700),
-                                                    ),
-                                                    Row(
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(20.0),
+                                                  child: SizedBox(
+                                                    width: MediaQuery.of(context)
+                                                            .size
+                                                            .width *
+                                                        0.7,
+                                                    child: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment.start,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment.end,
                                                       children: [
-                                                        SvgPicture.asset(
-                                                            event['iconPath']),
-                                                        const SizedBox(
-                                                          width: 10,
-                                                        ),
                                                         Text(
-                                                          event['date'],
+                                                          event['title'],
                                                           style: const TextStyle(
-                                                              color:
-                                                                  Colors.white,
+                                                              color: Colors.white,
                                                               fontFamily:
                                                                   'Santoshi',
                                                               fontSize: 16,
                                                               fontWeight:
-                                                                  FontWeight
-                                                                      .w700),
+                                                                  FontWeight.w700),
                                                         ),
+                                                        Row(
+                                                          children: [
+                                                            SvgPicture.asset(
+                                                                event['iconPath']),
+                                                            const SizedBox(
+                                                              width: 10,
+                                                            ),
+                                                            Text(
+                                                              event['date'],
+                                                              style: const TextStyle(
+                                                                  color:
+                                                                      Colors.white,
+                                                                  fontFamily:
+                                                                      'Santoshi',
+                                                                  fontSize: 16,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w700),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        const SizedBox(
+                                                          height: 20,
+                                                        )
                                                       ],
                                                     ),
-                                                    const SizedBox(
-                                                      height: 20,
-                                                    )
-                                                  ],
-                                                ),
-                                              ),
-                                            )
-                                          ],
-                                        ),
+                                                  ),
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                        ],
                                       ),
-                                    ],
-                                  );
+                                    );
+                                  },
+                                ),
+                              ),
+                            )
+                          : Container(
+                              height: MediaQuery.of(context).size.height * 0.73,
+                              width: double.infinity,
+                              child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    SvgPicture.asset(
+                                        'Assets/Images/Icon/Empty.svg'),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    const Text(
+                                      'You have not created any event yet.',
+                                      style: TextStyle(
+                                          fontFamily: 'Santoshi',
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 13,
+                                          color: Color(0xff696D61)),
+                                    )
+                                  ]),
+                            ),
+                      Positioned(
+                        bottom: 10,
+                        right: 0,
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                              right: MediaQuery.of(context).size.width * 0.08),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              GestureDetector(
+                                onTap: ()
+                                {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                                    return const CE_Step1();
+                                  }));
                                 },
-                              ),
-                            ),
-                          )
-                        : Container(
-                            height: MediaQuery.of(context).size.height * 0.73,
-                            width: double.infinity,
-                            child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  SvgPicture.asset(
-                                      'Assets/Images/Icon/Empty.svg'),
-                                  const SizedBox(
-                                    height: 10,
+                                child: Container(
+                                  height: 88,
+                                  width: 88,
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xff8DC73F),
+                                    borderRadius: const BorderRadius.all(
+                                      Radius.circular(100),
+                                    ),
+                                    border: Border.all(
+                                        color: const Color(0xffD6E2C7), width: 5),
                                   ),
-                                  const Text(
-                                    'You have not created any event yet.',
-                                    style: TextStyle(
-                                        fontFamily: 'Santoshi',
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 13,
-                                        color: Color(0xff696D61)),
-                                  )
-                                ]),
+                                  child: const Center(
+                                    child: Icon(
+                                      Icons.add,
+                                      color: Colors.white,
+                                      size: 40,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                    Positioned(
-                      bottom: 10,
-                      right: 0,
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                            right: MediaQuery.of(context).size.width * 0.08),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Container(
-                              height: 88,
-                              width: 88,
-                              decoration: BoxDecoration(
-                                color: const Color(0xff8DC73F),
-                                borderRadius: const BorderRadius.all(
-                                  Radius.circular(100),
-                                ),
-                                border: Border.all(
-                                    color: const Color(0xffD6E2C7), width: 5),
-                              ),
-                              child: const Center(
-                                child: Icon(
-                                  Icons.add,
-                                  color: Colors.white,
-                                  size: 40,
-                                ),
-                              ),
-                            ),
-                          ],
                         ),
-                      ),
-                    )
-                  ])
-                ],
+                      )
+                    ])
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
         bottomNavigationBar:
             // height: 120.0,
@@ -539,7 +532,7 @@ class _CreateEventsMainState extends State<CreateEventsMain> {
         style: TextStyle(
           fontFamily: 'SantoshiMedium',
           color: filterNumber == activeFilter ? Colors.black : Colors.grey,
-          fontSize: 24,
+          fontSize: 22,
         ),
       ),
     );

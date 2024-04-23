@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stub_guys/ORGANISER_APP/O_Screens/O_Profile/Components/Withdraw/Components/Withdrawalsdata.dart';
 import 'package:stub_guys/ORGANISER_APP/O_Screens/O_Profile/Components/Withdraw/O_withdrawlAmount.dart';
+import 'package:badges/badges.dart' as badges;
 
 class WithdrawMain extends StatefulWidget {
   const WithdrawMain({Key? key}) : super(key: key);
@@ -15,6 +16,8 @@ class _WithdrawMainState extends State<WithdrawMain> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        surfaceTintColor: Colors.white,
         automaticallyImplyLeading: false,
       ),
       backgroundColor: Colors.white,
@@ -38,31 +41,17 @@ class _WithdrawMainState extends State<WithdrawMain> {
                       height: 1.1,
                     ),
                   ),
-                  Stack(
-                    children: [
-                      SvgPicture.asset(
-                        'Assets/Images/Icon/bell.svg',
-                      ),
-                      Positioned(
-                        top: -4.0,
-                        right: 5.0,
-                        child: Container(
-                          padding: const EdgeInsets.all(5.0),
-                          decoration: const BoxDecoration(
-                            color: Color(0xFF8DC73F),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Text(
-                            '5',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 10.0,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                  badges.Badge(
+                    badgeStyle: badges.BadgeStyle(
+                      badgeColor: Color(0xff8DC73F)
+                    ),
+                    badgeContent: Text("5",style: TextStyle(
+                      fontSize: 13,
+                      color: Colors.white,
+                      fontFamily: 'SatoshiBold'
+                    ),),
+                    child: SvgPicture.asset('Assets/Images/Icon/bell.svg'),
+                  )
                 ],
               ),
             ),

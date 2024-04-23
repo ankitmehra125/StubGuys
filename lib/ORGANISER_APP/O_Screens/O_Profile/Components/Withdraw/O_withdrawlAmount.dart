@@ -40,7 +40,7 @@ class _WithdrawAmountState extends State<WithdrawAmount> {
                           style: TextStyle(
                             fontSize: 24,
                             color: Color(0xff201335),
-                            fontFamily: 'SatoshiMedium',
+                            fontFamily: 'SatoshiBold',
                             height: 1.1,
                           ),
                         ),

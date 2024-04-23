@@ -19,7 +19,7 @@ class _QRViewExampleState extends State<QRViewExample> {
     return Scaffold(
       body: ListView(
         children: [
-          SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.05),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0),
             child: Row(
@@ -44,10 +44,8 @@ class _QRViewExampleState extends State<QRViewExample> {
               children: [
                 SvgPicture.asset("Assets/Images/qr.svg"),
                 Container(
-                  width: MediaQuery.of(context).size.width *
-                      0.65, // Customize the width of your container
-                  height: MediaQuery.of(context).size.height *
-                      0.3, // Customize the height of your container
+                  width: MediaQuery.of(context).size.width * 0.65, // Customize the width of your container
+                  height: MediaQuery.of(context).size.height * 0.3, // Customize the height of your container
                   child: QRView(
                     key: qrKey,
                     onQRViewCreated: _onQRViewCreated,
